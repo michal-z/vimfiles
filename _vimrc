@@ -1,73 +1,58 @@
-set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+set rtp+=$VIM/fzf-master
+set rtp+=$VIM/fzf.vim-master
+" (env var) FZF_DEFAULT_COMMAND = rg --files . 2> nul
+" rg.exe and fzf.exe in the PATH
 
+filetype indent plugin on
+set nocompatible
 syntax enable
-colorscheme solarized8_dark_flat
-let g:CommandTMaxFiles=2000000
-let g:CommandTTraverseSCM='dir'
-let g:CommandTSCMDirectories='.git,CommandTRoot'
+set background=dark
+colorscheme solarized8_flat
 let g:netrw_banner=0
 language en
 set guifont=Consolas:h11:cEASTEUROPE
 set noexpandtab
 set tabstop=4 softtabstop=4 shiftwidth=4
-set nobackup
-set noswapfile
-set noundofile
-set nowrap
+set nobackup noswapfile noundofile
+set wrap nolist breakindent showbreak=→
 set wildmenu
-"set wildmode=list:full
 set ruler
-set linespace=2
+set linespace=1
 set lines=999 columns=999
+set hidden
 winpos 0 0
-set guioptions-=T " hides toolbar
-set guioptions-=m " hides menu
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set cmdheight=2
+set guioptions=
+set cmdheight=1
 set laststatus=2
 set enc=utf-8
+nnoremap <silent> <C-L> :noh<CR><C-L>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>t :BTags<CR>
+nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
+nnoremap <C-F5> :wa<CR>:terminal make.bat run<CR>
+nnoremap <F7> :wa<CR>:terminal make.bat<CR>
+set showtabline=0
+set complete=.,w,b,u
 set cino=(0,:0,t0
 set cino+=(0,W4,g0
-unmap <C-F>
-unmap! <C-F>
-unmap <C-H>
-unmap! <C-H>
-unmap <C-Y>
-unmap! <C-Y>
-nnoremap <silent> <C-L> :noh<CR><C-L>
-"nnoremap <F5> :wa<CR>:mak debug<CR>
-nnoremap <C-F5> :wa<CR>:terminal Build.bat run<CR>
-nnoremap <F7> :wa<CR>:terminal Build.bat<CR>
-set showtabline=0
-set wildignore=*.css,*.obj,*.iobj,*.html,*.xml,*.js,*.png,*.exe,*.dds,*.bat,*.pdb,*.dll,*.bin,*.lib,*.exp
-set wildignore+=*.sln,*.csproj,*.vcproj,*.meta
-" Unity
-"set wildignore+=*/Library,*/ProjectSettings,*/Temp
-" UE4
-set wildignore+=*/UnrealEngine/Engine/Source/ThirdParty,*/UnrealEngine/Engine/Extras
-set wildignore+=*/UnrealEngine/Engine/Build,*/UnrealEngine/Engine/Documentation
-set wildignore+=*/Content,*/Intermediate,*/Saved,*/Binaries,*/DerivedDataCache
-set wildignore+=*.uasset,*.umap
-"set previewheight=16
-set sidescroll=1
-set sidescrolloff=10
-set complete=.,w,b,u
-
-inoremap jk <Esc>
-
-"set rop=type:directx
-"let loaded_matchparen=0
-
+set cino+=j1,ws,Ws "lambda
+set nostartofline
+set showcmd
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 augroup vimrc
   autocmd!
-  autocmd BufRead,BufNewFile *.hlsl,*.compute,*.ush,*.usf set filetype=hlsl
-  autocmd BufRead,BufNewFile *.vfl set filetype=vfl
+  autocmd BufRead,BufNewFile *.hlsl,*.usf,*.ush set filetype=hlsl
+  autocmd BufRead,BufNewFile *.ispc set filetype=ispc
   autocmd filetype hlsl setlocal cindent
-  autocmd filetype vfl setlocal cindent
+  autocmd filetype ispc setlocal cindent
+  autocmd BufRead,BufNewFile *.asm,*.inc set filetype=fasm
+  autocmd filetype fasm setlocal ts=12 sw=12 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
 augroup END
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
