@@ -1,7 +1,7 @@
 set rtp+=$VIM/fzf-master
 set rtp+=$VIM/fzf.vim-master
 " (env var) FZF_DEFAULT_COMMAND = rg --files . 2> nul
-" rg.exe and fzf.exe in the PATH
+" rg.exe, fzf.exe and ctags.exe in the PATH (fzf uses ctags for :BTags)
 
 filetype indent plugin on
 set nocompatible
@@ -30,8 +30,6 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>t :BTags<CR>
 nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
-nnoremap <C-F5> :wa<CR>:terminal make.bat run<CR>
-nnoremap <F7> :wa<CR>:terminal make.bat<CR>
 set showtabline=0
 set complete=.,w,b,u
 set cino=(0,:0,t0
@@ -51,6 +49,8 @@ augroup vimrc
   autocmd filetype ispc setlocal cindent
   autocmd BufRead,BufNewFile *.asm,*.inc set filetype=fasm
   autocmd filetype fasm setlocal ts=12 sw=12 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
+  set noerrorbells visualbell t_vb=
+  autocmd GUIEnter * set visualbell t_vb=
 augroup END
 noremap <silent> k gk
 noremap <silent> j gj
