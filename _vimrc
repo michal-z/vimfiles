@@ -1,5 +1,7 @@
 set rtp+=$VIM/fzf-master
 set rtp+=$VIM/fzf.vim-master
+let g:fzf_history_dir = '$VIM/fzf-history'
+let g:fzf_buffers_jump = 1
 " (env var) FZF_DEFAULT_COMMAND = rg --files . 2> nul
 " rg.exe, fzf.exe and ctags.exe in the PATH (fzf uses ctags for :BTags)
 
@@ -11,7 +13,7 @@ colorscheme solarized8_flat
 let g:netrw_banner=0
 language en
 set guifont=Consolas:h11:cEASTEUROPE
-set noexpandtab
+set expandtab
 set tabstop=4 softtabstop=4 shiftwidth=4
 set nobackup noswapfile noundofile
 set wrap nolist breakindent showbreak=→
@@ -48,7 +50,7 @@ augroup vimrc
   autocmd filetype hlsl setlocal cindent
   autocmd filetype ispc setlocal cindent
   autocmd BufRead,BufNewFile *.asm,*.inc set filetype=fasm
-  autocmd filetype fasm setlocal ts=12 sw=12 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
+  autocmd filetype fasm setlocal ts=8 sw=8 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
   set noerrorbells visualbell t_vb=
   autocmd GUIEnter * set visualbell t_vb=
 augroup END
@@ -56,3 +58,10 @@ noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> 0 g0
 noremap <silent> $ g$
+
+nnoremap <silent> <C-F5> :wa<CR>:mak run<CR>
+nnoremap <silent> <F7> :wa<CR>:mak<CR>
+
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <Esc>:update<CR>
