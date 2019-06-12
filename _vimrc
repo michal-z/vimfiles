@@ -46,11 +46,9 @@ set smartcase
 augroup vimrc
   autocmd!
   autocmd BufRead,BufNewFile *.hlsl,*.usf,*.ush set filetype=hlsl
-  autocmd BufRead,BufNewFile *.ispc set filetype=ispc
   autocmd filetype hlsl setlocal cindent
-  autocmd filetype ispc setlocal cindent
   autocmd BufRead,BufNewFile *.asm,*.inc set filetype=fasm
-  autocmd filetype fasm setlocal ts=8 sw=8 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
+  autocmd filetype fasm setlocal ts=12 sw=12 sts=0 smartindent nocindent noautoindent indentexpr= expandtab foldcolumn=1
   set noerrorbells visualbell t_vb=
   autocmd GUIEnter * set visualbell t_vb=
 augroup END

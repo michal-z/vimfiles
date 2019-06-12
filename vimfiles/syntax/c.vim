@@ -249,7 +249,7 @@ endif
 syn keyword	cType		int long short char void
 syn keyword	cType		signed unsigned float double
 if !exists("c_no_ansi") || exists("c_ansi_typedefs")
-  syn keyword   cType		size_t ssize_t off_t wchar_t ptrdiff_t sig_atomic_t fpos_t
+  syn keyword   cType		size_t ssize_t off_t wchar_t ptrdiff_t sig_atomic_t fpos_t usize isize
   syn keyword   cType		clock_t time_t va_list jmp_buf FILE DIR div_t ldiv_t
   syn keyword   cType		mbstate_t wctrans_t wint_t wctype_t
 endif
@@ -273,7 +273,7 @@ if exists("c_gnu")
 endif
 
 syn keyword	cStructure	struct union enum typedef
-syn keyword	cStorageClass	static register auto volatile extern const
+syn keyword	cStorageClass	static register auto volatile extern const fn
 if exists("c_gnu")
   syn keyword	cStorageClass	inline __attribute__
 endif
