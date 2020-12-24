@@ -46,20 +46,26 @@ set complete=.,w,b,u
 "set cino=(0,:0,t0
 "set cino+=(0,W4,g0
 set cino+=j1,ws,Ws "lambda
-set cino+=(s,m1,u0,N-s
+"set cino+=(s,m1,u0,N-s
+set cino+=(s,u0
+set cino+=g0,:0,l1
 set nostartofline
 set showcmd
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+fun! AddMyTypes()
+	syn keyword myType int8 int16 int32 int64 uint8 uint16 uint32 uint64
+	hi def link myType Type
+endfu
 augroup vimrc
   autocmd!
-  autocmd BufRead,BufNewFile *.hlsl,*.ixx,*.usf,*.ush set filetype=cpp
+  autocmd BufRead,BufNewFile,BufEnter *.hlsl,*.ixx,*.usf,*.ush set filetype=cpp
+  autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h :call AddMyTypes()
   set noerrorbells visualbell t_vb=
   autocmd GUIEnter * set visualbell t_vb=
 augroup END
-command Bd bp | sp | bn | bd
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> 0 g0
@@ -69,3 +75,6 @@ vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <Esc>:update<CR>
 set exrc " Enable support for per-project .vimrc file.
 set secure
+nmap ,d :b#<bar>bd#<CR>
+nmap ,D :bd<CR>
+set isfname-=:
