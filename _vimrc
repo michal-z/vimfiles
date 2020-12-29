@@ -11,7 +11,8 @@ let g:fzf_layout = {
 \     'border': 'sharp'
 \   }
 \ }
-" (env var) FZF_DEFAULT_COMMAND = rg --files --no-config . 2> nul
+" (env var) FZF_DEFAULT_COMMAND = rg --no-config --files . 2> nul
+" (env var) RIPGREP_CONFIG_PATH = C:\Development\vim\.ripgreprc
 " rg.exe, fzf.exe and ctags.exe in the PATH (fzf uses ctags for :BTags)
 
 filetype indent plugin on
