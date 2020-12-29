@@ -4,14 +4,14 @@ let g:fzf_history_dir = '$VIM/fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_preview_window = ''
 let g:fzf_layout = {
-\'window': {
-\    'width': 0.9,
-\    'height': 0.6,
-\    'highlight': 'Identifier',
-\    'border': 'sharp'
-\  }
-\}
-" (env var) FZF_DEFAULT_COMMAND = rg --files . 2> nul
+\ 'window': {
+\     'width': 0.9,
+\     'height': 0.6,
+\     'highlight': 'Identifier',
+\     'border': 'sharp'
+\   }
+\ }
+" (env var) FZF_DEFAULT_COMMAND = rg --files --no-config . 2> nul
 " rg.exe, fzf.exe and ctags.exe in the PATH (fzf uses ctags for :BTags)
 
 filetype indent plugin on
