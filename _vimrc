@@ -30,9 +30,7 @@ set wrap nolist breakindent showbreak=→
 set wildmenu
 set ruler
 set linespace=1
-"set lines=999 columns=999
 set hidden
-"winpos 0 0
 set guioptions=
 set cmdheight=1
 set laststatus=2
@@ -44,12 +42,7 @@ nnoremap <silent> <leader>t :BTags<CR>
 nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
 set showtabline=0
 set complete=.,w,b,u
-"set cino=(0,:0,t0
-"set cino+=(0,W4,g0
-set cino+=j1,ws,Ws "lambda
-"set cino+=(s,m1,u0,N-s
-set cino+=(s,u0
-set cino+=g0,:0,l1
+set cino=j1,ws,Ws,(s,u0,g0,:0
 set nostartofline
 set showcmd
 set hlsearch
@@ -74,7 +67,7 @@ noremap <silent> $ g$
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <Esc>:update<CR>
-set exrc " Enable support for per-project .vimrc file.
+set exrc
 set secure
 nmap ,d :b#<bar>bd#<CR>
 nmap ,D :bd<CR>
