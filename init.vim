@@ -14,7 +14,7 @@ let g:netrw_banner=0
 let mapleader=","
 
 set scrolljump=-50
-set guicursor=a:blinkon100
+set guicursor+=a:blinkon100
 
 filetype indent plugin on
 syntax on
@@ -24,14 +24,14 @@ set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 set nobackup noswapfile noundofile
 set showtabline=0
 set ignorecase smartcase
-set wrap nolist breakindent showbreak=→
+"set wrap nolist breakindent showbreak=→
 colorscheme solarized8_flat
 set fillchars=vert:\ 
 
-noremap <silent> k gk
-noremap <silent> j gj
-noremap <silent> 0 g0
-noremap <silent> $ g$
+"noremap <silent> k gk
+"noremap <silent> j gj
+"noremap <silent> 0 g0
+"noremap <silent> $ g$
 
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
