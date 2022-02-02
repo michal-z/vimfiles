@@ -27,17 +27,18 @@ set ignorecase smartcase
 set wrap nolist breakindent showbreak=→
 colorscheme solarized8_flat
 set fillchars=vert:\ 
-
-nnoremap <silent> <C-L> :noh<CR><C-L>
+set isfname-=:
+set exrc
+set secure
 
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> 0 g0
 noremap <silent> $ g$
 
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <Esc>:update<CR>
+noremap <C-S> :wall<CR>
+vnoremap <C-S> <C-C>:wall<CR>
+inoremap <C-S> <Esc>:wall<CR>
 
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
