@@ -9,6 +9,7 @@ call plug#end()
 
 let g:fzf_history_dir = stdpath('data') . '/fzf-history'
 let g:fzf_buffers_jump = 1
+let g:fzf_preview_window = []
 
 let g:netrw_banner=0
 let mapleader=","
