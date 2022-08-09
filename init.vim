@@ -4,25 +4,27 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'ziglang/zig.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/lifepillar/vim-solarized8.git'
 call plug#end()
 
 let g:fzf_history_dir = stdpath('data') . '/fzf-history'
 let g:fzf_buffers_jump = 1
 let g:fzf_preview_window = []
-let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Normal'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
+
+"let g:fzf_colors =
+"    \ { 'fg':      ['fg', 'Normal'],
+"      \ 'bg':      ['bg', 'Normal'],
+"      \ 'hl':      ['fg', 'Comment'],
+"      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"      \ 'hl+':     ['fg', 'Statement'],
+"      \ 'info':    ['fg', 'PreProc'],
+"      \ 'border':  ['fg', 'Normal'],
+"      \ 'prompt':  ['fg', 'Conditional'],
+"      \ 'pointer': ['fg', 'Exception'],
+"      \ 'marker':  ['fg', 'Keyword'],
+"      \ 'spinner': ['fg', 'Label'],
+"      \ 'header':  ['fg', 'Comment'] }
 
 let g:netrw_banner=0
 let mapleader=","
@@ -37,8 +39,14 @@ set nobackup noswapfile noundofile
 set showtabline=0
 set ignorecase smartcase
 set wrap nolist breakindent showbreak=→
+
 syntax on
-colorscheme save_your_eyes
+set background=dark
+colorscheme solarized8_flat
+:hi! MatchParen guifg=Red guibg=NONE
+:hi! StatusLine gui=NONE guifg=#eee8d5 guibg=#073642
+:hi! StatusLineNC gui=NONE guifg=#93a1a1 guibg=#073642
+
 set fillchars=vert:\ 
 set isfname-=:
 set exrc
