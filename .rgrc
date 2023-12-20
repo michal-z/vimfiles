@@ -1,0 +1,10 @@
+# (env var) RIPGREP_CONFIG_PATH = C:\UE5\.rgrc
+
+--smart-case
+--no-column
+--line-number
+--no-heading
+--color=always
+
+--type-add
+h: *.h

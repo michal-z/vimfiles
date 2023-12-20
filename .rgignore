@@ -1,0 +1,19 @@
+# Ignore all files by default, but scan all directories
+*
+!*/
+
+!*.cpp
+!*.h
+!*.inl
+!*.txt
+!*.usf
+!*.ush
+!*.cs
+*.generated.h
+ThirdParty/
+Binaries/
+Build/
+Extras/
+Intermediate/
+Content/
+Developer/
