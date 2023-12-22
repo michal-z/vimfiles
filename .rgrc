@@ -6,5 +6,8 @@
 --no-heading
 --color=always
 
---type-add
-h: *.h
+--type-clear=cpp
+--type-add=cpp:*.cpp
+
+--type-clear=h
+--type-add=h:*.h
