@@ -9,6 +9,7 @@
 !*.usf
 !*.ush
 !*.cs
+!*.bat
 *.generated.h
 ThirdParty/
 Binaries/
