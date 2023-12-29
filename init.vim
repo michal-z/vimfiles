@@ -17,6 +17,7 @@ let g:fzf_vim.preview_window = []
 let mapleader=","
 
 set scrolljump=-50
+set mouse=
 
 filetype indent plugin on
 language en
