@@ -14,6 +14,8 @@ let g:fzf_vim = {}
 let g:fzf_vim.buffers_jump = 1
 let g:fzf_vim.preview_window = []
 
+let c_no_curly_error = 1
+
 let mapleader=","
 
 set scrolljump=-50
@@ -22,17 +24,19 @@ set mouse=
 filetype indent plugin on
 language en
 set termguicolors
-set expandtab tabstop=4 softtabstop=4 shiftwidth=4
+set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 set nobackup noswapfile noundofile
 set showtabline=0
 set ignorecase smartcase
 set wrap nolist breakindent linebreak showbreak=→
+set cino=(s,u0,j1,J1,t0
+set cc=84
 
 syntax on
 set background=dark
 colorscheme solarized8_flat
 
-set fillchars=vert:\ 
+set fillchars=|
 set isfname-=:
 set exrc
 set secure
@@ -52,14 +56,12 @@ nnoremap <silent> <leader>t :BTags<CR>
 nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
 
 fun! AddMyTypes()
-  syn keyword myType func i8 i16 i32 i64 u8 u16 u32 u64 f32 f64 usize ssize int32 uint32
+  syn keyword myType int8 uint8 int16 uint16 int32 uint32 int64 uint64
   hi def link myType Type
-  syn keyword myInclude defer
-  hi def link myInclude Include
 endfu
 
 augroup vimrc
   autocmd!
-  autocmd BufRead,BufNewFile,BufEnter *.usf,*.ush set filetype=cpp
+  autocmd BufRead,BufNewFile,BufEnter *.hlsl,*.usf,*.ush set filetype=cpp
   autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h :call AddMyTypes()
 augroup END
