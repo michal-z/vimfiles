@@ -3,7 +3,7 @@ colorscheme slate
 syntax enable
 set background=dark
 language en
-set guifont=Consolas:h12:cEASTEUROPE
+set guifont=Cascadia\ Code:h12
 set expandtab
 set tabstop=4 softtabstop=4 shiftwidth=4
 set nobackup noswapfile noundofile
